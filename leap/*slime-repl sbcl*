@@ -1,0 +1,334 @@
+; SLIME 2.23
+CL-USER> (or (mod 100 10))
+0
+CL-USER> (or (mod 100 10) (mod 100 3))
+0
+CL-USER> (or (= (mod 100 10) 0))
+T
+; compiling (DEFUN LEAP-YEAR-P ...)
+
+; file: /tmp/slime5BY62A
+; in: DEFUN LEAP-YEAR-P
+;     ((OR (= MOD LEAP::YEAR 4) 0)
+;      (AND (= (MOD LEAP::YEAR 100) 0) (= (MOD LEAP::YEAR 400) 0)))
+; 
+; caught ERROR:
+;   illegal function call
+
+;     (DEFUN LEAP:LEAP-YEAR-P (LEAP::YEAR)
+;       WHEN
+;       ((OR (= MOD LEAP::YEAR 4) 0)
+;        (AND (= (MOD LEAP::YEAR 100) 0) (= (MOD LEAP::YEAR 400) 0))))
+; --> PROGN SB-IMPL::%DEFUN SB-IMPL::%DEFUN SB-INT:NAMED-LAMBDA 
+; ==>
+;   #'(SB-INT:NAMED-LAMBDA LEAP:LEAP-YEAR-P
+;         (LEAP::YEAR)
+;       (DECLARE (SB-C::TOP-LEVEL-FORM))
+;       (BLOCK LEAP:LEAP-YEAR-P
+;         WHEN
+;         ((OR (= MOD LEAP::YEAR 4) 0) (AND (= # 0) (= # 0)))))
+; 
+; caught STYLE-WARNING:
+;   The variable YEAR is defined but never used.
+
+; file: /tmp/slime5BY62A
+; in: DEFUN LEAP-YEAR-P
+;     (DEFUN LEAP:LEAP-YEAR-P (LEAP::YEAR)
+;       WHEN
+;       ((OR (= MOD LEAP::YEAR 4) 0)
+;        (AND (= (MOD LEAP::YEAR 100) 0) (= (MOD LEAP::YEAR 400) 0))))
+; --> PROGN SB-IMPL::%DEFUN SB-IMPL::%DEFUN SB-INT:NAMED-LAMBDA 
+; --> FUNCTION 
+; ==>
+;   (BLOCK LEAP:LEAP-YEAR-P
+;     WHEN
+;     ((OR (= MOD LEAP::YEAR 4) 0)
+;      (AND (= (MOD LEAP::YEAR 100) 0) (= (MOD LEAP::YEAR 400) 0))))
+; 
+; caught WARNING:
+;   undefined variable: COMMON-LISP:WHEN
+; 
+; compilation unit finished
+;   Undefined variable:
+;     WHEN
+;   caught 1 ERROR condition
+;   caught 1 WARNING condition
+;   caught 1 STYLE-WARNING condition
+
+; file: /home/fyt/exercism/common-lisp/leap/leap.lisp
+; in: DEFUN LEAP-YEAR-P
+;     ((OR (= MOD LEAP::YEAR 4) 0)
+;      (AND (= (MOD LEAP::YEAR 100) 0) (= (MOD LEAP::YEAR 400) 0)))
+; 
+; caught ERROR:
+;   illegal function call
+
+;     (DEFUN LEAP:LEAP-YEAR-P (LEAP::YEAR)
+;       WHEN
+;       ((OR (= MOD LEAP::YEAR 4) 0)
+;        (AND (= (MOD LEAP::YEAR 100) 0) (= (MOD LEAP::YEAR 400) 0))))
+; 
+; caught STYLE-WARNING:
+;   The variable YEAR is defined but never used.
+
+; file: /home/fyt/exercism/common-lisp/leap/leap.lisp
+; in: DEFUN LEAP-YEAR-P
+;     (DEFUN LEAP:LEAP-YEAR-P (LEAP::YEAR)
+;       WHEN
+;       ((OR (= MOD LEAP::YEAR 4) 0)
+;        (AND (= (MOD LEAP::YEAR 100) 0) (= (MOD LEAP::YEAR 400) 0))))
+; ==>
+;   (BLOCK LEAP:LEAP-YEAR-P
+;     WHEN
+;     ((OR (= MOD LEAP::YEAR 4) 0)
+;      (AND (= (MOD LEAP::YEAR 100) 0) (= (MOD LEAP::YEAR 400) 0))))
+; 
+; caught WARNING:
+;   undefined variable: COMMON-LISP:WHEN
+; 
+; compilation unit finished
+;   Undefined variableq
+;     WHEN
+;   caught 1 ERROR condition
+;   caught 1 WARNING conditiqon
+;   caught 1 STYLE-WARNING condition
+* 
+
+; file: /home/fyt/exercism/common-lisp/leap/leap.lisp
+; in: DEFUN LEAP-YEAR-P
+;     ((OR (= MOD LEAP::YEAR 4) 0)
+;      (AND (= (MOD LEAP::YEAR 100) 0) (= (MOD LEAP::YEAR 400) 0)))
+; 
+; caught ERROR:
+;   illegal function call
+
+;     (DEFUN LEAP:LEAP-YEAR-P (LEAP::YEAR)
+;       WHEN
+;       ((OR (= MOD LEAP::YEAR 4) 0)
+;        (AND (= (MOD LEAP::YEAR 100) 0) (= (MOD LEAP::YEAR 400) 0))))
+; 
+; caught STYLE-WARNING:
+;   The variable YEAR is defined but never used.
+
+; file: /home/fyt/exercism/common-lisp/leap/leap.lisp
+; in: DEFUN LEAP-YEAR-P
+;     (DEFUN LEAP:LEAP-YEAR-P (LEAP::YEAR)
+;       WHEN
+;       ((OR (= MOD LEAP::YEAR 4) 0)
+;        (AND (= (MOD LEAP::YEAR 100) 0) (= (MOD LEAP::YEAR 400) 0))))
+; ==>
+;   (BLOCK LEAP:LEAP-YEAR-P
+;     WHEN
+;     ((OR (= MOD LEAP::YEAR 4) 0)
+;      (AND (= (MOD LEAP::YEAR 100) 0) (= (MOD LEAP::YEAR 400) 0))))
+; 
+; caught WARNING:
+;   undefined variable: COMMON-LISP:WHEN
+; 
+; compilation unit finished
+;   Undefined variable:
+;     WHEN
+;   caught 1 ERROR condition
+;   caught 1 WARNING condition
+;   caught 1 STYLE-WARNING condition
+d
+CL-USER> (leap:leap-year-p 1900) 
+; compiling (DEFUN LEAP-YEAR-P ...)
+
+; file: /tmp/slimeAoM5B1
+; in: DEFUN LEAP-YEAR-P
+;     (= MOD LEAP::YEAR 4)
+; --> 
+; --> (LAMBDA (#:G3 #:G2 #:G1) (DECLARE (TYPE NUMBER #:G3 #:G2 #:G1)) (IF (= #:G3 #:G2) (IF (= #:G2 #:G1) T NIL) NIL)) 
+; --> SB-C::%FUNCALL 
+; ==>
+;   (#'(LAMBDA (G3 G2 G1) IN LEAP-YEAR-P) MOD LEAP::YEAR 4)
+; 
+; caught WARNING:
+;   undefined variable: COMMON-LISP:MOD
+; 
+; compilation unit finished
+;   Undefined variable:
+;     MOD
+;   caught 1 WARNING condition
+; Evaluation aborted on #<UNBOUND-VARIABLE WHEN {10054191C3}>.
+CL-USER> (leap:leap-year-p 1900) 
+; compiling (DEFUN LEAP-YEAR-P ...); Evaluation aborted on #<UNBOUND-VARIABLE MOD {10055B52F3}>.
+CL-USER> (leap:leap-year-p 1900) 
+
+T
+CL-USER> (leap:leap-year-p 2000) 
+T
+CL-USER> (leap:leap-year-p 1996) 
+T
+; compiling (DEFUN LEAP-YEAR-P ...)
+CL-USER> (leap:leap-year-p 1996) 
+
+NIL
+CL-USER> (leap:leap-year-p 2000) 
+T
+CL-USER> (leap:leap-year-p 1996) 
+NIL
+CL-USER> (leap:leap-year-p 1996) 
+NIL
+CL-USER> (leap:leap-year-p 1900) 
+T
+; compiling (DEFUN LEAP-YEAR-P ...)
+CL-USER> (leap:leap-year-p 1900) 
+
+NIL
+CL-USER> (leap:leap-year-p 1996) 
+NIL
+CL-USER> (leap:leap-year-p 2000) 
+T
+; compiling (DEFUN LEAP-YEAR-P ...)
+CL-USER> (leap:leap-year-p 2000) 
+
+T
+CL-USER> (leap:leap-year-p 1996) 
+T
+CL-USER> (leap:leap-year-p 1996) 
+T
+CL-USER> (leap:leap-year-p 1900) 
+T
+; compiling (DEFUN LEAP-YEAR-P ...)
+CL-USER> (leap:leap-year-p 1900) 
+
+NIL
+CL-USER> (leap:leap-year-p 1996) 
+NIL
+CL-USER> (leap:leap-year-p 2000) 
+T
+CL-USER> (leap:leap-year-p 1996) 
+NIL
+CL-USER> (leap:leap-year-p 1996) 
+NIL
+; compiling (DEFUN LEAP-YEAR-P ...)
+CL-USER> (leap:leap-year-p 1996) 
+
+NIL
+CL-USER> (leap:leap-year-p 2000) 
+T
+CL-USER> (leap:leap-year-p 1996) 
+NIL
+CL-USER> (leap:leap-year-p 1996) 
+NIL
+CL-USER> (leap:leap-year-p 1900) 
+NIL
+CL-USER> (leap:leap-year-p 1907)
+NIL
+CL-USER> (load "leap-test.lisp")
+To load "lisp-unit":
+  Load 1 ASDF system:
+    lisp-unit
+; Loading "lisp-unit"
+
+ | Failed Form: (LEAP:LEAP-YEAR-P 1996)
+ | Expected T but saw NIL
+ | 1996 => 1996
+ |
+VANILLA-LEAP-YEAR: 0 assertions passed, 1 failed.
+
+ANY-OLD-YEAR: 1 assertions passed, 0 failed.
+
+NON-LEAP-EVEN-YEAR: 1 assertions passed, 0 failed.
+
+CENTURY: 1 assertions passed, 0 failed.
+
+EXCEPTIONAL-CENTURY: 1 assertions passed, 0 failed.
+
+Unit Test Summary
+ | 5 assertions total
+ | 4 passed
+ | 1 failed
+ | 0 execution errors
+ | 0 missing tests
+
+T
+; compiling (DEFUN LEAP-YEAR-P ...)
+
+; file: /tmp/slimeZEnqic
+; in: DEFUN LEAP-YEAR-P
+;     (LEAP::!= (MOD LEAP::YEAR 100) 0)
+; 
+; caught STYLE-WARNING:
+;   undefined function: LEAP::!=
+; 
+; compilation unit finished
+;   Undefined function:
+;     !=
+;   caught 1 STYLE-WARNING condition
+
+CL-USER> (load "leap-test.lisp")
+To load "lisp-unit":
+  Load 1 ASDF system:
+    lisp-unit
+; Loading "lisp-unit"
+
+VANILLA-LEAP-YEAR: 1 assertions passed, 0 failed.
+
+ANY-OLD-YEAR: 1 assertions passed, 0 failed.
+
+NON-LEAP-EVEN-YEAR: 1 assertions passed, 0 failed.
+
+CENTURY: 1 assertions passed, 0 failed.
+
+EXCEPTIONAL-CENTURY: 1 assertions passed, 0 failed.
+
+Unit Test Summary
+ | 5 assertions total
+ | 5 passed
+ | 0 failed
+ | 0 execution errors
+ | 0 missing tests
+
+T
+CL-USER> (load "leap-test.lisp")
+To load "lisp-unit":
+  Load 1 ASDF system:
+    lisp-unit
+; Loading "lisp-unit"
+
+VANILLA-LEAP-YEAR: 1 assertions passed, 0 failed.
+
+ANY-OLD-YEAR: 1 assertions passed, 0 failed.
+
+NON-LEAP-EVEN-YEAR: 1 assertions passed, 0 failed.
+
+CENTURY: 1 assertions passed, 0 failed.
+
+EXCEPTIONAL-CENTURY: 1 assertions passed, 0 failed.
+
+Unit Test Summary
+ | 5 assertions total
+ | 5 passed
+ | 0 failed
+ | 0 execution errors
+ | 0 missing tests
+
+T
+CL-USER> (load "leap-test.lisp")
+To load "lisp-unit":
+  Load 1 ASDF system:
+    lisp-unit
+; Loading "lisp-unit"
+
+VANILLA-LEAP-YEAR: 1 assertions passed, 0 failed.
+
+ANY-OLD-YEAR: 1 assertions passed, 0 failed.
+
+NON-LEAP-EVEN-YEAR: 1 assertions passed, 0 failed.
+
+CENTURY: 1 assertions passed, 0 failed.
+
+EXCEPTIONAL-CENTURY: 1 assertions passed, 0 failed.
+
+Unit Test Summary
+ | 5 assertions total
+ | 5 passed
+ | 0 failed
+ | 0 execution errors
+ | 0 missing tests
+
+T
+CL-USER> 
